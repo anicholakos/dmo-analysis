@@ -8,7 +8,7 @@ Advisors: Ed Fox, Florian Zach
 
 Abstract: In the United States, cities like Philadelphia, Pennsylvania or Portland, Oregon are
 marketed by destination marketing organizations (DMOs) to potential visitors. DMO websites
-mostly are a collection of information on attractions, accommodation, transportation and events.
+mostly are a collection of information on attractions, accommodation, transportation, and events.
 Dr. Florian Zach seeks to conduct a historical analysis of the outbound and internal links of
 DMO websites in order to learn which website DMOs point to and how this changes over time.
 We will assist him in this analysis by analyzing data from top tourism websites from each state
