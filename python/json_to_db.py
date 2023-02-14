@@ -9,10 +9,10 @@ def connect():
 
         # connect to the PostgreSQL server
         conn = psycopg2.connect(
-            host="localhost",
-            database="dmo_analysis_db",
-            user="postgres",
-            password="password")
+            host="localhost", # change to your hostname
+            database="dmo_analysis_db", # change to your database name
+            user="postgres", # change to your db username
+            password="password") # change to your db password
 		
         # create a cursor
         cur = conn.cursor()
@@ -75,10 +75,18 @@ def open_json(cur, conn):
                 date = year + "-" + month + "-01" 
                 internal = data[year][month][url]['internal']
                 external = data[year][month][url]['external']
+
+                # remove protocol from URLs
+                internal = [s.replace("http://", "") for s in internal]
+                internal = [s.replace("https://", "") for s in internal]
+                internal = [s.replace("www.", "") for s in internal]
+                external = [s.replace("http://", "") for s in external]
+                external = [s.replace("https://", "") for s in external]
+                external = [s.replace("www.", "") for s in external]
                 #print(data[year][month][url]['external'])
 
                 # insert json data into db
-                insert_row(cur, conn, id_count, state, url, date, internal, external)
+                insert_row(cur, conn, id_count, state, url.replace("http://", "").replace("https://", "").replace("www.", ""), date, internal, external)
                 id_count += 1
 
     # closing file
